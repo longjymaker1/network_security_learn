@@ -25,4 +25,3 @@ def ping_one(host):
 
 if __name__ == '__main__':
     ping0 = ping_one('172.31.93.1')
-    # print(sys.argv[0])

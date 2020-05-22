@@ -39,3 +39,4 @@ if __name__ == '__main__':
         print(ip)
     t1 = time.time()
     print(t1-t0)
+    print(len(active_ip))

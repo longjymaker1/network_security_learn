@@ -10,10 +10,10 @@ def arp_one(ip_address, queue=None, ifname='eno33554944'):
     # arp 针对的是二层广播，而且还要收响应所以用srp
     result_raw = srp(Ether(dst='FF:FF:FF:FF:FF:FF') / ARP(op=1, hwdst="00:00:00:00:00:00", pdst=ip_address),
                      timeout=1,
-                     # iface=ifname,
+
                      verbose=False)
     try:
-        result_list = result_raw[0].rse  # 把响应的数据包对，产生为清单
+        result_list = result_raw[0].res  # 把响应的数据包对，产生为清单
         # [0]为第一组响应数据
         # [1]接收到的数据包, [0]为发送的数据包
         # [1]ARP头部字段中的['hwsrc']字段, 作为返回值返回
@@ -27,4 +27,4 @@ def arp_one(ip_address, queue=None, ifname='eno33554944'):
 
 if __name__ == '__main__':
     import sys
-    print(arp_one('192.168.31.163'))
+    print(arp_one('172.31.93.249'))
